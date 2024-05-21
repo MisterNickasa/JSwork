@@ -103,3 +103,75 @@ if (radius*2 <= squareside) {
     alert("Не поместиться");
 }
 //9 punkt
+function displayQuestions() {
+    const questions = [
+      {
+        question: "Какая из этих стран не имеет выхода к морю?",
+        options: ["Казахстан", "Боливия", "Монголия"],
+        correctAnswer: "Монголия",
+      },
+      {
+        question: "Какая из этих рек самая длинная?",
+        options: ["Амазонка", "Нил", "Миссисипи"],
+        correctAnswer: "Амазонка",
+      },
+      {
+        question: "Какой из этих городов является столицей Франции?",
+        options: ["Берлин", "Париж", "Рим"],
+        correctAnswer: "Париж",
+      },
+    ];
+  
+    let score = 0;
+  
+    // Отображение вопросов и обработка ответов
+    for (const question of questions) {
+      const answer = prompt(question.question + "\n" + question.options.join("\n"));
+      if (answer === question.correctAnswer) {
+        score += 2;
+        alert("Правильно! Вы получаете 2 балла.");
+      } else {
+        alert("Неправильно. Правильный ответ: " + question.correctAnswer);
+      }
+    }
+  
+    // Отображение результатов
+    alert("Тест завершен. Вы набрали " + score + " баллов.");
+  }
+  displayQuestions();
+  //10 punkt
+  function getNextDate(day, month, yea) {
+    // Проверка на високосный год
+    const isLeapYear = (yea % 4 === 0 && yea % 100 !== 0) || yea % 400 === 0;
+  
+    // Дни в каждом месяце
+    const daysInMonth = [31, isLeapYear ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  
+    // Проверка на конец месяца
+    if (day === daysInMonth[month - 1]) {
+      // Переход на следующий месяц
+      day = 1;
+      month++;
+    }
+  
+    // Проверка на конец года
+    if (month === 12) {
+      // Переход на следующий год
+      month = 1;
+      yea++;
+    }
+  
+    // Возврат следующей даты
+    return { day, month, yea };
+  }
+  
+  // Ввод даты пользователем
+  const day = parseInt(prompt("Введите день:"));
+  const month = parseInt(prompt("Введите месяц:"));
+  const yea = parseInt(prompt("Введите год:"));
+  
+  // Получение следующей даты
+  const nextDate = getNextDate(day, month, yea);
+  
+  // Вывод результата
+  alert(`Следующая дата: ${nextDate.day}.${nextDate.month}.${nextDate.yea}`);

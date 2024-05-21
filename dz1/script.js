@@ -46,5 +46,5 @@ const reversedNumber = thirdDigit * 100 + secondDigit * 10 + firstDigit;
 alert("Число " + number + " задом наперед: " + reversedNumber);
 //10 punkt
 const num = prompt("Введите целое число:");
-const isEven = number % 2 === 0;
+const isEven = num % 2 === 0;
 alert(isEven ? "Число четное" : "Число нечетное");
